@@ -14,7 +14,9 @@
     "start": "next start",
     "lint": "eslint",
     "format": "prettier --write .",
-    "prepare": "husky"
+    "prepare": "husky",
+    "changeset": "changeset",
+    "version": "changeset version"
   },
   "dependencies": {
     "@sentry/nextjs": "^10.63.0",
@@ -23,6 +25,7 @@
     "react-dom": "19.2.4"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.31.0",
     "@eslint/js": "^10.0.1",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
