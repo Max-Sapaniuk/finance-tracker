@@ -1,5 +1,11 @@
 # finance-tracker
 
+## 0.3.0
+
+### Minor Changes
+
+- 6af72ae: set up file structure
+
 ## 0.2.0
 
 ### Minor Changes
