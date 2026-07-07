@@ -1,5 +1,25 @@
 import { withSentryConfig } from '@sentry/nextjs';
 import type { NextConfig } from 'next';
+import { z } from 'zod';
+
+// ✅ Validate env variables before anything else runs
+(() => {
+  const envSchema = z.object({
+    NODE_ENV: z.enum(['development', 'production', 'test']),
+    // Add more required env vars here
+  });
+
+  const parsed = envSchema.safeParse(process.env);
+
+  if (!parsed.success) {
+    const fieldErrors = z.treeifyError(parsed.error);
+    console.error('❌ Invalid environment variables:');
+    console.error(fieldErrors.properties);
+    process.exit(1); // ⛔ Kill the build!
+  }
+
+  console.log('✅ Env vars look good! You’re safe to ship 🚀');
+})();
 
 const nextConfig: NextConfig = {/* config options here */};
 
