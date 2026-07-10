@@ -1,114 +1,26 @@
 @import 'tailwindcss';
 
-/*
- * Finance Tracker — design system tokens
- * Source: Claude Design "Finance Tracker Design" (Foundations / 1h).
- * Everything on screens is built from these tokens — no one-offs.
- * Dark is the default theme; the light variant applies under [data-theme='light'].
- */
-
 :root {
-  color-scheme: dark;
-
-  /* Color · dark */
-  --base: #0f1115; /* bg / base            */
-  --surface: #16191f; /* surface / card       */
-  --surface-2: #1d2129; /* surface-2 / inset    */
-  --text-primary: #f2f4f7;
-  --text-secondary: #9aa3b2;
-  --text-muted: #5c6470;
-  --accent: #47d19a; /* positive · brand     */
-  --negative: #e5545c;
-
-  /* Categorical palette — asset classes (theme-independent) */
-  --cat-equities: #7fa3f2;
-  --cat-crypto: #e8b15c;
-  --cat-fiat: #62c6dc;
-  --cat-cash: #77808f;
-
-  /* Borders — white overlays */
-  --border-card: rgb(255 255 255 / 0.06); /* 1px card border   */
-  --border-hairline: rgb(255 255 255 / 0.05); /* row separators    */
-}
-
-[data-theme='light'] {
-  color-scheme: light;
-
-  /* Color · light */
-  --base: #f4f5f7;
-  --surface: #ffffff;
-  --surface-2: #eef0f3;
-  --text-primary: #14171d;
-  --text-secondary: #5b6472;
-  --text-muted: #8a93a2;
-  --accent: #17966b; /* positive · brand */
-  --negative: #d33f47;
-
-  /* Borders — black overlays read better on light surfaces */
-  --border-card: rgb(0 0 0 / 0.08);
-  --border-hairline: rgb(0 0 0 / 0.06);
+  --background: #ffffff;
+  --foreground: #171717;
 }
 
 @theme inline {
-  /* Colors → utilities: bg-base, bg-surface, text-primary, text-accent, … */
-  --color-base: var(--base);
-  --color-surface: var(--surface);
-  --color-surface-2: var(--surface-2);
-  --color-text-primary: var(--text-primary);
-  --color-text-secondary: var(--text-secondary);
-  --color-text-muted: var(--text-muted);
-  --color-accent: var(--accent);
-  --color-negative: var(--negative);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
 
-  --color-equities: var(--cat-equities);
-  --color-crypto: var(--cat-crypto);
-  --color-fiat: var(--cat-fiat);
-  --color-cash: var(--cat-cash);
-
-  --color-border-card: var(--border-card);
-  --color-border-hairline: var(--border-hairline);
-
-  /* Fonts */
-  --font-sans: var(--font-instrument-sans); /* body / UI       */
-  --font-display: var(--font-space-grotesk); /* figures / display */
-
-  /* Type scale (size / line-height) — from Foundations
-     display    Space Grotesk 600 / 46  · hero figures
-     number-lg  600 / 22                · card balances
-     number-sm  600 / 13.5 tabular-nums · rows, deltas
-     title      Instrument Sans 600 / 18· page title
-     heading    600 / 14                · card heading
-     body       500 / 13                · body & row text
-     label      600 / 11 uppercase +0.6 · section labels */
-  --text-display: 2.875rem; /* 46px */
-  --text-display--line-height: 1.05;
-  --text-number-lg: 1.375rem; /* 22px */
-  --text-number-lg--line-height: 1.2;
-  --text-number-sm: 0.84375rem; /* 13.5px */
-  --text-number-sm--line-height: 1.2;
-  --text-title: 1.125rem; /* 18px */
-  --text-title--line-height: 1.3;
-  --text-heading: 0.875rem; /* 14px */
-  --text-heading--line-height: 1.3;
-  --text-body: 0.8125rem; /* 13px */
-  --text-body--line-height: 1.5;
-  --text-label: 0.6875rem; /* 11px */
-  --text-label--line-height: 1.2;
-  --text-label--letter-spacing: 0.6px;
-
-  /* Radius: 16 cards · 9–10 controls · 999 pills */
-  --radius-card: 16px;
-  --radius-control: 10px;
-  --radius-pill: 999px;
-
-  /* Spacing: 4px scale (8 / 12 / 16 / 24 / 36) */
-  --spacing: 4px;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
 }
 
 body {
-  background: var(--base);
-  color: var(--text-primary);
-  font-family: var(--font-sans), system-ui, sans-serif;
-  font-size: var(--text-body);
-  font-weight: 500;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
 }
