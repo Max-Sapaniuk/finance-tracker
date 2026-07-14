@@ -257,7 +257,6 @@ function SidebarTrigger({
   ...props
 }: React.ComponentProps<typeof Button>) {
   const { toggleSidebar } = useSidebar();
-  const isMobile = useIsMobile();
 
   return (
     <Button
@@ -265,7 +264,7 @@ function SidebarTrigger({
       data-slot="sidebar-trigger"
       variant="ghost"
       size="icon-sm"
-      className={cn(className, !isMobile ? 'hidden' : '')}
+      className={cn(className)}
       onClick={(event) => {
         onClick?.(event);
         toggleSidebar();

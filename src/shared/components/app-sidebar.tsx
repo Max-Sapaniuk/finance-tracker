@@ -14,77 +14,7 @@ import {
 import Logo from '@/shared/assets/images/logo.png';
 import Icon from '@/shared/assets/images/icon.png';
 import Image from 'next/image';
-import {
-  ArrowLeftRightIcon,
-  BriefcaseBusinessIcon,
-  LandmarkIcon,
-  LayoutDashboardIcon,
-  SettingsIcon,
-} from 'lucide-react';
-
-interface NavItem {
-  title: string;
-  url: string;
-  icon?: React.ReactNode;
-  isActive?: boolean;
-  items?: {
-    title: string;
-    url: string;
-  }[];
-}
-
-interface SidebarData {
-  main: NavItem[];
-  footer: NavItem[];
-}
-
-// This is sample data.
-const data: SidebarData = {
-  main: [
-    {
-      title: 'Dashboard',
-      url: '/',
-      icon: <LayoutDashboardIcon />,
-    },
-    {
-      title: 'Portfolio',
-      url: '/portfolio',
-      icon: <BriefcaseBusinessIcon />,
-    },
-    {
-      title: 'Transactions',
-      url: '/transactions',
-      icon: <ArrowLeftRightIcon />,
-    },
-    {
-      title: 'Platforms',
-      url: '/platforms',
-      icon: <LandmarkIcon />,
-      isActive: true,
-      items: [
-        {
-          title: 'Monobank',
-          url: '/platforms/monobank',
-        },
-        {
-          title: 'Binance',
-          url: '/platforms/binance',
-        },
-        {
-          title: 'Freedom24',
-          url: '/platforms/freedom24',
-        },
-      ],
-    },
-  ],
-  footer: [
-    {
-      title: 'Settings',
-      url: '/settings',
-      icon: <SettingsIcon />,
-    },
-  ],
-};
+import { routes } from '@/shared/lib/routes';
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const sidebar = useSidebar();
@@ -99,10 +29,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         )}
       </SidebarHeader>
       <SidebarContent>
-        <NavItems items={data.main} />
+        <NavItems items={routes.main} />
       </SidebarContent>
       <SidebarFooter>
-        <NavItems items={data.footer} />
+        <NavItems items={routes.footer} />
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>
