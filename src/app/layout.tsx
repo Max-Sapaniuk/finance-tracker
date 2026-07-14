@@ -3,12 +3,9 @@ import { Geist, Geist_Mono, Space_Grotesk } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/shared/lib/utils';
 import { TooltipProvider } from '@/shared/components/ui/tooltip';
-import {
-  SidebarInset,
-  SidebarProvider,
-  SidebarTrigger,
-} from '@/shared/components/ui/sidebar';
+import { SidebarInset, SidebarProvider } from '@/shared/components/ui/sidebar';
 import { AppSidebar } from '@/shared/components/app-sidebar';
+import { SidebarHeader } from '@/shared/components/sidebar-header';
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -53,7 +50,7 @@ export default function RootLayout({
           <SidebarProvider>
             <AppSidebar />
             <SidebarInset>
-              <SidebarTrigger />
+              <SidebarHeader />
               {children}
             </SidebarInset>
           </SidebarProvider>
